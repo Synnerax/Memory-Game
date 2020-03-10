@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Memory</title>
 </head>
 <body>
     <div id="start-screen">
@@ -12,7 +13,7 @@
         <h3>Match the correct cards!</h3>
         <button id="start-game" >Start the Game</button>
     </div>
-    <main id="game">
+    <main id="game" class="game-box hide">
         <div id="game-info-container">
         <div class="game-info">
             <h3>Score: <span id="score-counter">0</span></h3>
@@ -170,12 +171,16 @@
 
 <div id="overlay">
     <div id="restart-window">
-        <span>You Won</span>
-        <button id="restart-game">Restart</button>
+        <h1>You Won</h1>
         <div id="final-info-container">
-            Matched Final Flips: <span id="matched-total-score">0</span>
-            Total Flips: <span id="total-flips">0</span>
+            <h2> 
+                Matched Final Flips: <span id="matched-total-score">0</span>
+            </h2>
+            <h2>
+                Total Flips: <span id="total-flips">0</span>
+            </h2>
         </div>
+        <button id="restart-game">Restart</button>
     </div>
 </div>
 <script src="js/javascript.js"></script>

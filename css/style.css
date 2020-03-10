@@ -10,20 +10,27 @@
 
 body {
     display: flex;
-    height: 100vh;
+    height: 90vh;
+    font-family: 'Abril Fatface', cursive;
 }
 
 
+
 #game {
-    display: none;
+
+}
+
+.game-box{
+    display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
     width: 65vw;
-    height: 100vh;
     
 }
 
 #start-screen {
+    font-size: 2rem;
+
     position: fixed; /* Sit on top of the page content */
     display: flex; /* Hidden by default */
     justify-content: center;
@@ -31,13 +38,9 @@ body {
     flex-direction: column;
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    background-color: rgba(132, 150, 153, 0.5); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+    box-shadow: inset 0 0 50px 26px #193030;
   }
 #start-game{
     width: 10rem;
@@ -50,6 +53,7 @@ body {
     
 }
 #game-info-container{
+    font-size: 2rem;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -68,23 +72,43 @@ body {
     bottom: 0;
     background-color: rgba(19, 131, 9, 0.83); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+    box-shadow: inset 0 0 50px 26px #193030;
 }
 
 #restart-window {
+    
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
 }
+
+#restart-window span {
+    margin-left: auto;
+}
+
+#restart-window h2{
+    display: flex;
+}
+
+#final-info-container{
+    height: 6rem;
+    width: 20rem;
+}
+
+#restart-game{
+    width: 10vw;
+    height: 9vh;
+} 
 /*Card Holder*/
 .flip-card {
     border: 3px solid white;
     background-color: transparent;
     width: 25%;
     display: flex;
-    height: 24vh;
+    height: 24%;
     perspective: 1000px;
 }
 
@@ -101,9 +125,12 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
+
+
 .flip-card:hover {
     transform: scale(0.97);
     transition: transform .2s;
+    
 
 }
 
@@ -133,4 +160,8 @@ img {
 
 .flip-card-inner.flip {
     transform: rotateY(180deg);
+}
+
+.hide {
+    display: none;
 }

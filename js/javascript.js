@@ -6,6 +6,8 @@
 const cards = document.querySelectorAll('.flip-card-inner');
 const gameBox = document.getElementById('game')
 const startGameButton = document.getElementById('start-game');
+const restartGameButton = document.getElementById('restart-game');
+
 
 const totalScore = document.getElementById('matched-total-score');
 const totalFlips = document.getElementById('total-flips');
@@ -25,33 +27,38 @@ let firstCard, secondCard;
  * ----------------------------------------------------------------------------------------------
  */
 // gömmer start screen overlay och visar spel brädan
-function gameStart() {
+// function gameStart() {
+//     countMatchedFlips = 0;
+//     if (gameBox.style.display == "") {
+//     gameStartState();
+//     shuffle();
+//     gameBox.style.display = "flex";
+//     } else {
+//         gameBox.style.display = "";
+//     }
+// } 
+
+function gameStart(){
     countMatchedFlips = 0;
-    if (gameBox.style.display == "") {
+    gameBox.classList.toggle('hide')
     gameStartState();
     shuffle();
-    gameBox.style.display = "flex";
-    } else {
-        gameBox.style.display = "";
-    }
-} 
+}
 
 function flipCard(){
-    countFlips++;
-    flipCounter.innerText = countFlips;
     //låser alla om det ej matchar tills timeOut är klar
     if(lockBoard) return;
     // om kortet du trycker på är samma som fC, körs inte reseten
     if (this === firstCard) return;
+    countFlips++;
+    flipCounter.innerText = countFlips;
     this.classList.toggle('flip')
     // om hasFlippedCard = false kommer den bytas till true
         if (!hasFlippedCard){
             hasFlippedCard = true;
             firstCard = this;
-            
         } else { // om hasFlippedCard = true sparas de till second
             secondCard = this;
-
             checkCards();
             
         }
@@ -188,10 +195,9 @@ function gameOverScreenOff() {
 startGameButton.addEventListener('click', gameStart);
 
 // starta om spelet efter avklarad runda
-document.getElementById('restart-game').addEventListener('click', restartGame);
+restartGameButton.addEventListener('click', restartGame);
 
 // lägger till så att alla kort kan "flippa"
 cards.forEach(card => card.addEventListener('click', flipCard));
-//startGameButton.addEventListener('click', gameStartState,);
 
 
