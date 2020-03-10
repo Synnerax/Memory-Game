@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="start-screen">
+        <h1>Memory Card Game</h1>
+        <h3>Match the correct cards!</h3>
+        <button id="start-game" >Start the Game</button>
+    </div>
+    <main id="game">
+        <div id="game-info-container">
+        <div class="game-info">
+            <h3>Score: <span id="score-counter">0</span></h3>
+        </div>
+        <div class="game-info">
+            <h3>Flips: <span id="flips-counter">0</span></h3>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="1">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot1.png">
+        </div>
+        </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner"data-framework="1">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot1.png">
+        </div>
+        </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="2">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot2.png">
+        </div>
+        </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="2">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot2.png">
+        </div>
+        </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="3">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot3.png">
+        </div>
+        </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="3">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot3.png">
+        </div>
+        </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="4">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot4.png">
+        </div>
+        </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="4">
+        <div class="flip-card-front">
+        </div>
+                <div class="flip-card-back">
+                    <img src="./img/robot4.png">
+        </div>
+    </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="5">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot5.png">
+        </div>
+        </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="5">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot5.png">
+        </div>
+        </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="6">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot6.png">
+        </div>
+        </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="6">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot6.png">
+        </div>
+        </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="7">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot7.png">
+        </div>
+        </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="7">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot7.png">
+        </div>
+        </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="8">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot8.png">
+        </div>
+        </div>
+    </div> 
+    <div class="flip-card">
+        <div class="flip-card-inner" data-framework="8">
+        <div class="flip-card-front">
+        </div>
+        <div class="flip-card-back">
+            <img src="./img/robot8.png">
+        </div>
+        </div>
+    </div> 
+
+</main>
+
+<div id="overlay">
+    <div id="restart-window">
+        <span>You Won</span>
+        <button id="restart-game">Restart</button>
+        <div id="final-info-container">
+            Matched Final Flips: <span id="matched-total-score">0</span>
+            Total Flips: <span id="total-flips">0</span>
+        </div>
+    </div>
+</div>
+<script src="js/javascript.js"></script>
+</body>
+</html>
+
