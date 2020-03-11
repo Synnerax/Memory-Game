@@ -7,13 +7,21 @@ const cards = document.querySelectorAll('.flip-card-inner');
 const gameBox = document.getElementById('game')
 const startGameButton = document.getElementById('start-game');
 const restartGameButton = document.getElementById('restart-game');
+const restartGameButtonLost = document.getElementById('restart-game-lost');
 
 
+const scoreTime = document.getElementById('game-timer');
 const totalScore = document.getElementById('matched-total-score');
 const totalFlips = document.getElementById('total-flips');
 const flipCounter = document.getElementById('flips-counter');
 const scoreCounter = document.getElementById('score-counter');
+const finalTime = document.getElementById('final-time');
 
+// losing screen values
+const totalFlipsLost = document.getElementById('total-flips-lost');
+const totalScoreLost = document.getElementById('matched-total-score-lost');
+
+let time = 101;
 let countFlips = 0;
 let countScore = 0;
 let countMatchedFlips = 0;
@@ -21,28 +29,32 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+
+let gameTimer;
+let countDown = function(){
+    
+    if (time > 0){
+        time--;
+        scoreTime.innerText = time;
+    }else {
+        clearInterval(gameTimer);
+        gameOverScreenOnLost();
+        totalFlipsLost.innerText = countFlips;
+        totalScoreLost.innerText = countMatchedFlips;
+    }
+}
 /** 
  * ----------------------------------------------------------------------------------------------
  *                                   Game Logic
  * ----------------------------------------------------------------------------------------------
  */
-// gömmer start screen overlay och visar spel brädan
-// function gameStart() {
-//     countMatchedFlips = 0;
-//     if (gameBox.style.display == "") {
-//     gameStartState();
-//     shuffle();
-//     gameBox.style.display = "flex";
-//     } else {
-//         gameBox.style.display = "";
-//     }
-// } 
-
 function gameStart(){
+    time = 101;
     countMatchedFlips = 0;
-    gameBox.classList.toggle('hide')
+    gameBox.classList.toggle('hide');
     gameStartState();
     shuffle();
+    startTimeNow();
 }
 
 function flipCard(){
@@ -65,7 +77,6 @@ function flipCard(){
 }
 
 
-// matching cards 
 function checkCards(){
     // matching cards 
     if (firstCard.dataset.framework === 
@@ -74,25 +85,30 @@ function checkCards(){
             completedMatchedCard();
             console.log(countMatchedFlips)
         } else {
-            //no match
+            //no matching cards
             unflipCards();
         }
 }
 
 
 
-//resets game from gameover overlay button
 function restartGame(){
+    countMatchedFlips = 0;
     countFlips = 0;
     countScore = 0;
+    time = 100;
+    scoreTime.innerText = time;
     flipCounter.innerText = countFlips;
-    scoreCounter.innerText = countScore;
+    startTimeNow();    
     for(let i = 0; i < cards.length;i++){
     cards[i].classList.remove('flip');
     enableCards();
     gameOverScreenOff();
+    gameOverScreenOffLost();
 }
 }
+
+
 
 /** 
  * ----------------------------------------------------------------------------------------------
@@ -111,15 +127,17 @@ function shuffle(){
 }
 
 
-
-// overlay när spelet är vunnet
+// matchar kort upp till 8 par, går sedan till winst overlay
 function completedMatchedCard(){
     countMatchedFlips++;
-    scoreCounter.innerText = countMatchedFlips;
+    countScore+=10;
     if(countMatchedFlips === 8){
         gameOverScreenOn();
+        clearTimer();
         totalFlips.innerText = countFlips;
         totalScore.innerText = countMatchedFlips;
+        finalTime.innerText = time;
+        document.getElementById('display-score').innerText = countScore + time - countFlips;
         
     } return;
 }
@@ -142,7 +160,7 @@ function unflipCards(){
         secondCard.classList.remove('flip');
 
         resetBoard();
-    }, 700);     // matched 
+    }, 700);    
 }
 
 
@@ -161,28 +179,31 @@ function resetBoard(){
 }
 
 
-
-
-
+function startTimeNow(){
+    gameTimer = setInterval(countDown, 1000);
+}
+function clearTimer() {
+    clearInterval(gameTimer);
+}
 
 
 function gameStartState(){
     shuffle();
     document.getElementById("start-screen").style.display = "none";
-
 }
 
-
-// when all cards are matched, goes to win overylay
 function gameOverScreenOn() {
     document.getElementById("overlay").style.display = "block";
-
 }
-
-// resets win overlay and resets score counter
 function gameOverScreenOff() {
     document.getElementById("overlay").style.display = "none";
 } 
+function gameOverScreenOnLost() {
+document.getElementById("overlay-lost").style.display = "block";
+}
+function gameOverScreenOffLost() {
+    document.getElementById("overlay-lost").style.display = "none";
+}
 /** 
  * ----------------------------------------------------------------------------------------------
  *                                   Event Listeners
@@ -196,8 +217,8 @@ startGameButton.addEventListener('click', gameStart);
 
 // starta om spelet efter avklarad runda
 restartGameButton.addEventListener('click', restartGame);
+restartGameButtonLost.addEventListener('click', restartGame);
 
 // lägger till så att alla kort kan "flippa"
 cards.forEach(card => card.addEventListener('click', flipCard));
-
 

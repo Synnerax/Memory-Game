@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="css/style.css">
     <title>Memory</title>
 </head>
@@ -16,7 +17,7 @@
     <main id="game" class="game-box hide">
         <div id="game-info-container">
         <div class="game-info">
-            <h3>Score: <span id="score-counter">0</span></h3>
+            <h3>Time: <span id="game-timer">100</span></h3>
         </div>
         <div class="game-info">
             <h3>Flips: <span id="flips-counter">0</span></h3>
@@ -173,15 +174,32 @@
     <div id="restart-window">
         <h1>You Won</h1>
         <div id="final-info-container">
-            <h2> 
-                Matched Final Flips: <span id="matched-total-score">0</span>
-            </h2>
+            <h2>Time left: <span id="final-time"></span></h2>
             <h2>
                 Total Flips: <span id="total-flips">0</span>
             </h2>
+            <h2> 
+                Matched Final Flips: <span id="matched-total-score">0</span>
+            </h2>
+            <h2>Total Score: <span id="display-score">0</span></h2>
         </div>
         <button id="restart-game">Restart</button>
     </div>
+</div>
+    <div id="overlay-lost">
+        <div id="restart-window-lost">
+            <h1>You Lost</h1>
+            <h2>You ran out of time!</h2>
+            <div id="final-info-container-lost">
+                <h2>
+                    Total Flips: <span id="total-flips-lost">0</span>
+                </h2>
+                <h2> 
+                    Matched Final Flips: <span id="matched-total-score-lost">0</span>
+                </h2>
+            </div>
+            <button id="restart-game-lost">Restart</button>
+        </div>
 </div>
 <script src="js/javascript.js"></script>
 </body>

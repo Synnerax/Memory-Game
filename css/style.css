@@ -11,12 +11,10 @@
 body {
     display: flex;
     height: 90vh;
-    font-family: 'Abril Fatface', cursive;
-}
+   /* font-family: 'Abril Fatface', cursive; */
 
+font-family: 'Press Start 2P', cursive;
 
-
-#game {
 
 }
 
@@ -29,7 +27,7 @@ body {
 }
 
 #start-screen {
-    font-size: 2rem;
+    font-size: 1.5rem;
 
     position: fixed; /* Sit on top of the page content */
     display: flex; /* Hidden by default */
@@ -38,24 +36,32 @@ body {
     flex-direction: column;
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
-    background-color: rgba(132, 150, 153, 0.5); /* Black background with opacity */
+    background-color: rgba(111, 169, 212, 0.5); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     box-shadow: inset 0 0 50px 26px #193030;
-  }
-#start-game{
+}
+#start-game, #restart-game, #restart-game-lost{
     width: 10rem;
     height: 5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    
+    border-radius: 5px;
+    box-shadow:  0px 0px 15px #333;
+
+}
+
+
+#start-screen h3 {
+    margin: 1rem;
     
 }
 #game-info-container{
     font-size: 2rem;
     display: flex;
     flex-wrap: wrap;
+    margin-top: 1rem;
     width: 100%;
     justify-content: space-between;
     align-items: center ;
@@ -75,7 +81,21 @@ body {
     box-shadow: inset 0 0 50px 26px #193030;
 }
 
-#restart-window {
+#overlay-lost {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(131, 10, 10, 0.83); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    box-shadow: inset 0 0 50px 26px #193030;
+}
+
+#restart-window, #restart-window-lost {
     
     height: 100%;
     display: flex;
@@ -85,23 +105,23 @@ body {
 
 }
 
-#restart-window span {
+#restart-window span, #restart-window-lost span {
     margin-left: auto;
 }
 
-#restart-window h2{
+#restart-window h2, #restart-window-lost h2{
     display: flex;
 }
 
-#final-info-container{
-    height: 6rem;
-    width: 20rem;
+#final-info-container, #final-info-container-lost{
+    height: 10rem;
+    width: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
-#restart-game{
-    width: 10vw;
-    height: 9vh;
-} 
+
 /*Card Holder*/
 .flip-card {
     border: 3px solid white;
